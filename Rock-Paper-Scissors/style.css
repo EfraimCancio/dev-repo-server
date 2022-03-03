@@ -1,6 +1,15 @@
+:root {
+    --ligth-pink-color: #FFEDE6;
+    --pink-color: #EF6461;
+    --blue-color: #140D4F;
+    --grey-color: #CCCCCC;
+    --bronw-color: #66493D;
+    --green-color: #9ED29E;
+}
+
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #ccc;
+    background-color: var(--grey-color);
     margin-top: 15%;
     display: flex;
     align-items: center;
@@ -9,14 +18,14 @@ body {
 
 #game-container {
     text-align: center;
-    background-color: #9ED29E;
+    background-color: var(--green-color);
     padding: 25px;
-    border: #66493D solid 5px;
+    border: var(--bronw-color) solid 5px;
     border-radius: 15px;
     box-shadow: 15px 15px 15px black ;
 }
 span {
-    color: #66493D; 
+    color: var(--bronw-color); 
 }
 #choices-container {
     margin-bottom: 30px;
@@ -27,21 +36,21 @@ span {
 }
 button {
     margin: 10px;
-    background-color: #FFEDE6;
+    background-color: var(--ligth-pink-color);
     cursor: pointer;
     font-weight: bold;
     height: 3rem;
     width: 6rem;
     border: 2px ;
-    border: #66493D solid 2px;
+    border: var(--bronw-color) solid 2px;
     border-radius: 5px;
-    color: #66493D;
+    color: var(--bronw-color);
     box-shadow: 5px 5px 5px black ;
     transition: all .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 button:hover {
-    color: #FFEDE6;
-    background-color: #66493D;
+    color: var(--ligth-pink-color);
+    background-color: var(--bronw-color);
     height: 4rem;
     width: 7rem;
 }
