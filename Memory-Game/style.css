@@ -1,7 +1,48 @@
+:root {
+    --ligth-pink-color: #FFEDE6;
+    --pink-color: #EF6461;
+    --blue-color: #140D4F;
+    --grey-color: #CCCCCC;
+    --bronw-color: #66493D;
+    --green-color: #9ED29E;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey-color);
+}
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: var(--blue-color);
+    text-shadow: 5px 5px 5px black;
+}
+
+img {
+    width: 10rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black ;
+    transition: all .5s ease-in-out;
+}
+
+img:hover {
+    width: 12rem ;
+}
+
+
 #grid{
-    width: 400px;
-    height: 300px;
+    padding: 30px;
+    width: 70%;
+    height: 70%;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    box-shadow: 15px 15px 15px black ;
+    gap: 15px;
+    border: var(--bronw-color) solid 5px; 
+    border-radius: 10px;
+    background-color: var(--pink-color);
 }

@@ -52,8 +52,11 @@ const cardArray = [
 cardArray.sort(() => 0.5 - Math.random());
 
 const gridDisplay = document.querySelector('#grid');
-const cardsChosen = [];
-const cardsChosenIds = [];
+const resultDisplay = document.querySelector('#result');
+
+let cardsChosen = [];
+let cardsChosenIds = [];
+const cardsWon = [];
 
 const createBoard = () => {
     for (let i = 0 ; i < cardArray.length;  i++) {
@@ -69,20 +72,41 @@ createBoard();
 
 function checkMatch() {
     const cards = document.querySelectorAll('img')
-
-    console.log('Checar se são iguais')
-    if (cardsChosen[0] == cardsChosen[1]) {
-        alert('CArtas iguais')
-        cards[cardsChosenIds[0]].setAttribute('src' , 'images/egg.png')
+    const optionOneId = cardsChosenIds[0]
+    const optionTwoId = cardsChosenIds[1]
+    
+    if (optionOneId == optionTwoId) {
+        alert('Deu Bom!')
     }
+
+    if (cardsChosen[0] == cardsChosen[1]) {
+        
+        cards[optionOneId].setAttribute('src' , 'images/life.png')
+        cards[optionTwoId].setAttribute('src' , 'images/life.png')
+        cards[optionOneId].removeEventListener('click' , flipCard)
+        cards[optionTwoId].removeEventListener('click' , flipCard)
+        cardsWon.push(cardsChosen)
+    } else {
+        cards[optionOneId].setAttribute('src' , 'images/king-boo.png')
+        cards[optionTwoId].setAttribute('src' , 'images/king-boo.png')
+        alert('Sorry... Não deu bom!')
+    }
+
+    resultDisplay.textContent = cardsWon.length
+    cardsChosen = []
+    cardsChosenIds = []
+
+    if (cardsWon.length == cardArray.length/2) {
+        resultDisplay.textContent = 'Congratulatios!!! Voçê é o Bichão mesmo hein?!!'
+    }
+
 }
 
 function flipCard () {
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(cardArray[cardId].name);
     cardsChosenIds.push(cardId)
-    console.log(cardsChosen)
-    console.log(cardsChosenIds)
+
     this.setAttribute('src', cardArray[cardId].img)
     if(cardsChosen.length === 2) {
         setTimeout( checkMatch, 500 )
